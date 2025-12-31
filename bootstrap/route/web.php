@@ -6,17 +6,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShortenUrlController;
 use App\Http\Controllers\UserController;
 
+
 Route::get('/', function () {
     return view('auth.login');
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');   
-
-    Route::get('/users/list', [UserController::class, 'list'])->name('users.list');
-    Route::get('/users/{user}', [UserController::class, 'show']);
-    Route::put('/users/{user}', [UserController::class, 'update']);
-
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
