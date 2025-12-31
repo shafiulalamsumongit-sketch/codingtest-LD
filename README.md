@@ -151,48 +151,29 @@ Invalid / Missing Token (401):
 5️⃣ Redirect Short URL
 
 GET /{short_code}
-
 Success Response (302): Redirects to original URL
 
 Not Found (404):
-
 {
   "message": "Short URL not found"
 }
 
 6️⃣ Error Responses
-HTTP Code	Error Type	Example Response
-401	Unauthorized / Invalid Token	{ "message": "Invalid or missing API token" }
-422	Validation Error	{ "message": "Validation Error", "errors": { "field": ["error message"] } }
-404	Not Found	{ "message": "Short URL not found" }
-500	Server Error	{ "message": "Internal server error" }
+- HTTP Code	Error Type	Example Response
+- 401	Unauthorized / Invalid Token	{ "message": "Invalid or missing API token" }
+- 422	Validation Error	{ "message": "Validation Error", "errors": { "field": ["error message"] } }
+- 404	Not Found	{ "message": "Short URL not found" }
+- 500	Server Error	{ "message": "Internal server error" }
+
 7️⃣ Sample Workflow
-
-Register → Receive API token
-
-Login → Receive API token
-
-Shorten URL → Get short URL
-
-Redirect → GET /{short_code}
-
-Logout → Token revoked
+- Register → Receive API token
+- Login → Receive API token
+- Shorten URL → Get short URL
+- Redirect → GET /{short_code}
+- Logout → Token revoked
 
 8️⃣ Security
+- Passwords hashed using bcrypt
+- Sanctum personal access tokens
+- Protected routes via auth:sanctum
 
-Passwords hashed using bcrypt
-
-Sanctum personal access tokens
-
-Protected routes via auth:sanctum
-
-📄 License
-
-MIT
-
-
----
-
-Once the system unlocks, I’ll be able to **generate a clickable downloadable `README.md` file** for you.  
-
-Do you want me to do that as soon as possible? ​:contentReference[oaicite:0]{index=0}​
